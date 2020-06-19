@@ -1,15 +1,14 @@
 let x = 0;
-let temp = "0";
 let y = null;
+let temp = "0";
 
 const screen = document.querySelector('.screen');
 
 function buttonClick(value) {
   if (isNaN(value)) {
-    // this is not a number
     sym(value);
-  } else {
-    // this is a number
+  } 
+  else {
     num(value);
   }
   screen.innerText = temp;
@@ -19,7 +18,8 @@ function buttonClick(value) {
 function num(str) {
     if (temp === "0") {
       temp = str;
-    } else {
+    } 
+    else {
       temp += str;
     }
 }
@@ -33,7 +33,6 @@ function sym(symbol) {
         break;
       case '=':
         if (y === null) {
-          // need you two numbers to do math
           return;
         }
         flush(parseInt(temp));
@@ -53,11 +52,14 @@ function sym(symbol) {
   function flush(tempvar) {
     if (y === '+') {
       x += tempvar;
-    } else if (y === '-') {
+    } 
+    else if (y === '-') {
       x -= tempvar;
-    } else if (y === '×') {
+    } 
+    else if (y === '×') {
       x *= tempvar;
-    } else {
+    } 
+    else {
       x /= tempvar;
     }
   }
@@ -69,8 +71,9 @@ function sym(symbol) {
     const z = parseInt(temp);
     if (x === 0) {
       x = z;
-    } else {
-      flushOperation(z);
+    } 
+    else {
+      flush(z);
     }
     y = symbol;
     temp = '0';
