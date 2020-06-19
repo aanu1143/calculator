@@ -5,14 +5,10 @@ let y = null;
 const screen = document.querySelector('.screen');
 
 function buttonClick(value) {
-  console.log('val', value);
   if (isNaN(value)) {
-    console.log('not number');
     // this is not a number
     sym(value);
   } else {
-    console.log('number');
-
     // this is a number
     num(value);
   }
@@ -32,12 +28,10 @@ function num(str) {
 function sym(symbol) {
     switch (symbol) {
       case 'C':
-        console.log('C');
         temp = '0';
         x = 0;
         break;
       case '=':
-        console.log('=');
         if (y === null) {
           // need you two numbers to do math
           return;
@@ -54,7 +48,6 @@ function sym(symbol) {
         calculation(symbol);
         break;
     }
-    console.log('end');
   }
 
   function flush(tempvar) {
@@ -70,22 +63,16 @@ function sym(symbol) {
   }
   
   function calculation(symbol) {
-    console.log('handleMath', symbol);
     if (temp === '0') {
-      // do nothing
-      return;
+     return;
     }
-  
     const z = parseInt(temp);
-  
     if (x === 0) {
       x = z;
     } else {
       flushOperation(z);
     }
-  
     y = symbol;
-  
     temp = '0';
   }
 
