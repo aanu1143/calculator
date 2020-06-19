@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: black;
-    color: white;
-}
 
 .container {
     display: grid;
@@ -15,6 +11,8 @@ body {
     width: 100%;
     max-width: 500px;
     grid-template-rows: 100px 400px;
+    background-color: black;
+    color: white;
 }
 
 .screen {

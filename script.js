@@ -6,7 +6,12 @@ const screen = document.querySelector('.screen');
 
 function buttonClick(value) {
   if (isNaN(value)) {
-    sym(value);
+    if (value==='.') {
+      num(value);
+    }
+    else {
+      sym(value);
+    }
   } 
   else {
     num(value);
@@ -31,11 +36,15 @@ function sym(symbol) {
         temp = '0';
         x = 0;
         break;
+      case 'Reset':
+        temp = '0';
+        x = 0;
+        break;
       case '=':
         if (y === null) {
           return;
         }
-        flush(parseInt(temp));
+        flush(parseFloat(temp));
         y = null;
         temp = x;
         x = 0;
@@ -68,7 +77,7 @@ function sym(symbol) {
     if (temp === '0') {
      return;
     }
-    const z = parseInt(temp);
+    const z = parseFloat(temp);
     if (x === 0) {
       x = z;
     } 
